@@ -1,5 +1,5 @@
 {
-  "name": "RASM",
+  "name": "rasm",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,10 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./src/index.js"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "url": "^0.11.0"
   }
 }

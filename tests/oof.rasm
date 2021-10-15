@@ -1,0 +1,5 @@
+PRINT "HI";
+OOF "R0bl0x10501050";
+KICK "Telamon";
+WAIT 5;
+PRINT "DONE";
