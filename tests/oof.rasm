@@ -1,4 +1,4 @@
-PRINT "HI";
+PRINT "Hi, how are you?";
 SET A 50;
 GET "game.Workspace.PartB" AS B;
 OOF "R0bl0x10501050";

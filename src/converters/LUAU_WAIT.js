@@ -1,5 +1,5 @@
 export default function WAIT(args) {
-	let str = "wait(";
+	let str = "task.wait(";
 	if (args[0]) {
 		str += args[0];
 		str += ")";

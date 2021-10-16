@@ -37,7 +37,7 @@ class RASM {
 			let args = [];
 
 			if (currentToken.split(" ").length > 1) {
-				let split = currentToken.split(" ");
+				let split = currentToken.match(/\w+|"[^"]+"/g);
 				command = split[0];
 				split.shift();
 				args = split;
@@ -47,11 +47,12 @@ class RASM {
 
 			try {
 				const { default: foundCommand } = await import(`./converters/${lang.toUpperCase()}_${command.toUpperCase()}.js`);
-				source += foundCommand(args);
-				source += "\n";
+				let finalizedCommand = foundCommand(args);
+				source += finalizedCommand ? finalizedCommand + "\n" : "";
 			} catch (e) {
-				console.error(e);
-				console.log("Error: Command not found\n");
+				// console.error(e);
+				if (command.trim().length == 0) { return; }
+				console.log(`ERROR: Command ${command.toUpperCase()} not found\n`);
 			} finally {
 				advance();
 			}
