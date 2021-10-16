@@ -5,4 +5,5 @@ node_modules
 tests
 
 # Files
+.gitignore
 .mailmap
