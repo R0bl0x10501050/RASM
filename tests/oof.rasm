@@ -1,7 +1,9 @@
 PRINT "HI";
 SET A 50;
+GET "game.Workspace.PartB" AS B;
 OOF "R0bl0x10501050";
 KICK "Telamon";
 WAIT 5;
 WARN A;
+RUN HttpService GetAsync "http://localhost:8080";
 PRINT "DONE";

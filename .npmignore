@@ -1,3 +1,8 @@
-node_modules
-dist
+# Directories
 .vscode
+dist
+node_modules
+tests
+
+# Files
+.mailmap

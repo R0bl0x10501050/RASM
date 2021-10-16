@@ -3,7 +3,7 @@ export default function OOF(args) {
 	if (args[0]) {
 		str += args[0];
 		str += ")\n";
-		str += `AUTO_VARIABLE_PLAYER.Character.Humanoid:TakeDamage(math.huge)\nend`
+		str += `AUTO_VARIABLE_PLAYER.Character.Humanoid:TakeDamage(math.huge)\nend`;
 	} else {
 		return null;
 	}
