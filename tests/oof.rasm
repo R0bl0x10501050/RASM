@@ -1,5 +1,7 @@
 PRINT "HI";
+SET A 50;
 OOF "R0bl0x10501050";
 KICK "Telamon";
 WAIT 5;
+WARN A;
 PRINT "DONE";

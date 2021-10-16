@@ -46,7 +46,7 @@ class RASM {
 			}
 
 			try {
-				const { default: foundCommand } = await import(`../lib/${lang.toUpperCase()}_${command.toUpperCase()}.js`);
+				const { default: foundCommand } = await import(`./converters/${lang.toUpperCase()}_${command.toUpperCase()}.js`);
 				source += foundCommand(args);
 				source += "\n";
 			} catch (e) {
@@ -64,8 +64,8 @@ class RASM {
 		return this.convert('js', rasm_str);
 	}
 
-	async lua(rasm_str) {
-		return this.convert('lua', rasm_str);
+	async luau(rasm_str) {
+		return this.convert('luau', rasm_str);
 	}
 }
 
