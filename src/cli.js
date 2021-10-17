@@ -29,16 +29,16 @@ let options = yargs(hideBin(process.argv))
 		const input = fs.readFileSync(path.join(process.cwd(), argv._[0])).toString();
 		let LUAU_RASM = new RASM();
 		let res = await LUAU_RASM.luau(input);
-		fs.writeFileSync(path.join(process.cwd(), argv.o || argv._[1] || "./" + /[ \w-]+?(?=\.)/g.exec(argv._[0])[0] + (argv.r && ".server.lua" || ".lua")), res || "-- RASM ERROR: Compile failure");
+		fs.writeFileSync(path.join(process.cwd(), argv.o || argv._[1] || "./" + /[ \w-]+?(?=\.)/g.exec(argv._[0])[0] + (argv.r && ".server.lua" || ".lua")), res || "-- RASM ERROR: Convert failure");
 		if (argv.l) {
-			console.log(chalk.keyword('green')("🎇 RASM Live Compiling - live!"));
+			console.log(chalk.keyword('green')("🎇 RASM Live Converter - live!"));
 			console.log(chalk.keyword('white')("It is recommended that you open a new Terminal window for other needs."));
 			let oldCode;
 			setInterval(async function () {
 				let newCode = fs.readFileSync(path.join(process.cwd(), argv._[0])).toString();
 				if (newCode !== oldCode) {
 					let res = await LUAU_RASM.luau(newCode);
-					fs.writeFileSync(path.join(process.cwd(), argv.o || argv._[1] || "./" + /[ \w-]+?(?=\.)/g.exec(argv._[0])[0] + (argv.r && ".server.lua" || ".lua")), res || "-- RASM ERROR: Compile failure");
+					fs.writeFileSync(path.join(process.cwd(), argv.o || argv._[1] || "./" + /[ \w-]+?(?=\.)/g.exec(argv._[0])[0] + (argv.r && ".server.lua" || ".lua")), res || "-- RASM ERROR: Convert failure");
 					oldCode = newCode;
 				}
 			}, 500);

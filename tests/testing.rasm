@@ -1,3 +1,2 @@
-PRINT "HI";
-WARN "BYE";
-KICK
+SET A 50;
+SET B 90;

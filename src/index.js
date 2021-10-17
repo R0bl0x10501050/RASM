@@ -1,4 +1,7 @@
-// import * from '../lib';
+// import { version as RASM_VERSION } from '../package.json';
+
+let RASM_VERSION = "1.0.0";
+let RASM_HOMEPAGE = "<link-unavailable>";
 
 class RASM {
 	constructor(version) {
@@ -15,7 +18,8 @@ class RASM {
 
 		let currentIndex = 0;
 		let currentToken = commands[currentIndex];
-
+		// let currentIndent = 0;
+		
 		let advance = () => {
 			currentIndex++;
 			currentToken = commands[currentIndex];
@@ -45,10 +49,12 @@ class RASM {
 				command = currentToken;
 			}
 
+			if (/^$|\s/.test(command)) { advance(); continue; }
+
 			try {
 				const { default: foundCommand } = await import(`./converters/${lang.toUpperCase()}_${command.toUpperCase()}.js`);
 				let finalizedCommand = foundCommand(args);
-				source += finalizedCommand ? finalizedCommand + "\n" : "";
+				source += (finalizedCommand && finalizedCommand !== undefined) ? finalizedCommand + (currentIndex + 2 !== commands.length && "\n" || `\n\n-- Converted by RASM ${RASM_VERSION}\n-- Visit ${RASM_HOMEPAGE} for more information.`) : "";
 			} catch (e) {
 				// console.error(e);
 				if (command.trim().length == 0) { return; }

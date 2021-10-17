@@ -8,4 +8,4 @@ const str = fs.readFileSync(path.join(__dirname, './testing.rasm')).toString();
 
 let JS_RASM = new RASM();
 
-console.log(await JS_RASM.luau(str))
+console.log(await JS_RASM.luau(str));
