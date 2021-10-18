@@ -1,7 +1,7 @@
 // import { version as RASM_VERSION } from '../package.json';
 
-let RASM_VERSION = "1.0.0";
-let RASM_HOMEPAGE = "<link-unavailable>";
+let RASM_VERSION = "1.0.2";
+let RASM_HOMEPAGE = "https://www.npmjs.com/package/rasm";
 
 class RASM {
 	constructor(version) {
